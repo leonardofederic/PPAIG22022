@@ -1,0 +1,42 @@
+C:\apuntes\Dsi22\PPAI\PPAI22 codigo\PPAi\PPAi\obj\Debug\PPAi.csproj.AssemblyReference.cache
+C:\apuntes\Dsi22\PPAI\PPAI22 codigo\PPAi\PPAi\obj\Debug\PPAi.csproj.SuggestedBindingRedirects.cache
+C:\apuntes\Dsi22\PPAI\PPAI22 codigo\PPAi\PPAi\obj\Debug\PPAi.Ventana_Pricipal.resources
+C:\apuntes\Dsi22\PPAI\PPAI22 codigo\PPAi\PPAi\obj\Debug\PPAi.Formularios.Ventana_Secuandario.resources
+C:\apuntes\Dsi22\PPAI\PPAI22 codigo\PPAi\PPAi\obj\Debug\PPAi.Formularios.Form3.resources
+C:\apuntes\Dsi22\PPAI\PPAI22 codigo\PPAi\PPAi\obj\Debug\PPAi.Formularios.Form4.resources
+C:\apuntes\Dsi22\PPAI\PPAI22 codigo\PPAi\PPAi\obj\Debug\PPAi.Properties.Resources.resources
+C:\apuntes\Dsi22\PPAI\PPAI22 codigo\PPAi\PPAi\obj\Debug\PPAi.csproj.GenerateResource.cache
+C:\apuntes\Dsi22\PPAI\PPAI22 codigo\PPAi\PPAi\obj\Debug\PPAi.csproj.CoreCompileInputs.cache
+C:\apuntes\Dsi22\PPAI\PPAI22 codigo\PPAi\PPAi\bin\Debug\PPAi.exe.config
+C:\apuntes\Dsi22\PPAI\PPAI22 codigo\PPAi\PPAi\bin\Debug\PPAi.exe
+C:\apuntes\Dsi22\PPAI\PPAI22 codigo\PPAi\PPAi\bin\Debug\PPAi.pdb
+C:\apuntes\Dsi22\PPAI\PPAI22 codigo\PPAi\PPAi\obj\Debug\PPAi.exe
+C:\apuntes\Dsi22\PPAI\PPAI22 codigo\PPAi\PPAi\obj\Debug\PPAi.pdb
+C:\leoprograms\PPAI modificado\PPAi\PPAi\bin\Debug\PPAi.exe.config
+C:\leoprograms\PPAI modificado\PPAi\PPAi\bin\Debug\PPAi.exe
+C:\leoprograms\PPAI modificado\PPAi\PPAi\bin\Debug\PPAi.pdb
+C:\leoprograms\PPAI modificado\PPAi\PPAi\obj\Debug\PPAi.csproj.AssemblyReference.cache
+C:\leoprograms\PPAI modificado\PPAi\PPAi\obj\Debug\PPAi.csproj.SuggestedBindingRedirects.cache
+C:\leoprograms\PPAI modificado\PPAi\PPAi\obj\Debug\PPAi.Ventana_Pricipal.resources
+C:\leoprograms\PPAI modificado\PPAi\PPAi\obj\Debug\PPAi.Formularios.Ventana_Secuandario.resources
+C:\leoprograms\PPAI modificado\PPAi\PPAi\obj\Debug\PPAi.Formularios.Form3.resources
+C:\leoprograms\PPAI modificado\PPAi\PPAi\obj\Debug\PPAi.Formularios.Form4.resources
+C:\leoprograms\PPAI modificado\PPAi\PPAi\obj\Debug\PPAi.Properties.Resources.resources
+C:\leoprograms\PPAI modificado\PPAi\PPAi\obj\Debug\PPAi.csproj.GenerateResource.cache
+C:\leoprograms\PPAI modificado\PPAi\PPAi\obj\Debug\PPAi.csproj.CoreCompileInputs.cache
+C:\leoprograms\PPAI modificado\PPAi\PPAi\obj\Debug\PPAi.exe
+C:\leoprograms\PPAI modificado\PPAi\PPAi\obj\Debug\PPAi.pdb
+C:\apuntes\Dsi22\PPAI\PPAI22 codigo\PPAI modificado\PPAi\PPAi\bin\Debug\PPAi.exe.config
+C:\apuntes\Dsi22\PPAI\PPAI22 codigo\PPAI modificado\PPAi\PPAi\bin\Debug\PPAi.exe
+C:\apuntes\Dsi22\PPAI\PPAI22 codigo\PPAI modificado\PPAi\PPAi\bin\Debug\PPAi.pdb
+C:\apuntes\Dsi22\PPAI\PPAI22 codigo\PPAI modificado\PPAi\PPAi\obj\Debug\PPAi.csproj.AssemblyReference.cache
+C:\apuntes\Dsi22\PPAI\PPAI22 codigo\PPAI modificado\PPAi\PPAi\obj\Debug\PPAi.csproj.SuggestedBindingRedirects.cache
+C:\apuntes\Dsi22\PPAI\PPAI22 codigo\PPAI modificado\PPAi\PPAi\obj\Debug\PPAi.Ventana_Pricipal.resources
+C:\apuntes\Dsi22\PPAI\PPAI22 codigo\PPAI modificado\PPAi\PPAi\obj\Debug\PPAi.Formularios.Ventana_Secuandario.resources
+C:\apuntes\Dsi22\PPAI\PPAI22 codigo\PPAI modificado\PPAi\PPAi\obj\Debug\PPAi.Formularios.Form3.resources
+C:\apuntes\Dsi22\PPAI\PPAI22 codigo\PPAI modificado\PPAi\PPAi\obj\Debug\PPAi.Formularios.Form4.resources
+C:\apuntes\Dsi22\PPAI\PPAI22 codigo\PPAI modificado\PPAi\PPAi\obj\Debug\PPAi.Properties.Resources.resources
+C:\apuntes\Dsi22\PPAI\PPAI22 codigo\PPAI modificado\PPAi\PPAi\obj\Debug\PPAi.csproj.GenerateResource.cache
+C:\apuntes\Dsi22\PPAI\PPAI22 codigo\PPAI modificado\PPAi\PPAi\obj\Debug\PPAi.csproj.CoreCompileInputs.cache
+C:\apuntes\Dsi22\PPAI\PPAI22 codigo\PPAI modificado\PPAi\PPAi\obj\Debug\PPAi.exe
+C:\apuntes\Dsi22\PPAI\PPAI22 codigo\PPAI modificado\PPAi\PPAi\obj\Debug\PPAi.pdb
