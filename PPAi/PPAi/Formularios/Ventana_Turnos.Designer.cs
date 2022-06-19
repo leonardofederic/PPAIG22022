@@ -1,6 +1,6 @@
 ﻿namespace PPAi.Formularios
 {
-    partial class Form3
+    partial class Ventana_Turnos
     {
         /// <summary>
         /// Required designer variable.

@@ -19,7 +19,7 @@ namespace PPAi.Entidades
         private int periodicidadMantenimientoPrev;
         private int duracionMantenimientoPrev;
         private int fraccionHorarioTurnos;
-        private List<Turno> turnos;
+        private List<Turno> turno;
         private TipoRecursoTecnológico tipoRecurso;
         private Modelo modelo;
         private List<CambioEstadoRT> cambioEstado;
@@ -57,7 +57,7 @@ namespace PPAi.Entidades
 
         public List<Turno> Turnos
         {
-            get => turnos; set => turnos = value;
+            get => turno; set => turno = value;
         }
 
         public TipoRecursoTecnológico TipoRecurso
@@ -88,7 +88,7 @@ namespace PPAi.Entidades
             this.periodicidadMantenimientoPrev = periodicidadMantenimientoPrev;
             this.duracionMantenimientoPrev = duracionMantenimientoPrev;
             this.fraccionHorarioTurnos = fraccionHorarioTurnos;
-            this.turnos = turnos;
+            this.turno = turnos;
             this.tipoRecurso = tipoRecurso;
             this.modelo = modelo;
             this.cambioEstado = cambioEstado;
@@ -132,7 +132,7 @@ namespace PPAi.Entidades
         {
             //List<Turno> turnosList = new List<Turno>();
             bool ban = false;
-            foreach (Turno turno in this.turnos)
+            foreach (Turno turno in this.turno)
             {
                 if (turno.esCancelableEnPeriodo(dia, mes) == false)
                 {
@@ -154,19 +154,19 @@ namespace PPAi.Entidades
 
         public List<Turno> mostrarTurnosReserva(List<Turno> turnos)
         {
-            foreach (Turno turno in this.turnos)
+            foreach (Turno turno in this.turno)
             {
                 if (turno.esConReserva() == false)
                 {
-                    this.turnos.Remove(turno);
+                    this.turno.Remove(turno);
                 }
             }
 
-            foreach (Turno turno in this.turnos)
+            foreach (Turno turno in this.turno)
             {
                 turno.mostrarDatosTurno();
             }
-            return this.turnos;
+            return this.turno;
         }
 
         public void ingresarEnMantenimientoCorrectivo(DateTime time, DateTime fechaFinPrev, string motivo, Estado estadoRT)
@@ -179,10 +179,20 @@ namespace PPAi.Entidades
 
         public void cancelarTurnos(DateTime time, Estado estadoRT)
         {
-            foreach (Turno turno in this.turnos)
+            foreach (Turno turno in this.turno)
             {
                 turno.setFechaFin(time, estadoRT);
             }
+        }
+        public List<List<string>> mostrarTurnoReservado(Estado pendienteDeConfirmacion, Estado confirmado, List<AsignaciónCientíficoDelCI> asignacionesCientificos)
+        {
+            List<List<string>> datos = null;
+            foreach (Turno turn in this.turno)
+            {
+                List<string> recibido = turn.mostarReserva(pendienteDeConfirmacion, confirmado, asignacionesCientificos);
+                if (recibido != null) { datos.Add(recibido); }
+            }
+            return datos;
         }
     }
 }

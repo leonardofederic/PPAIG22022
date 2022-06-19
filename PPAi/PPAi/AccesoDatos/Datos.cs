@@ -120,6 +120,11 @@ namespace PPAi.AccesoDatos
             list.Add(new Estado(7, "Preventivo", "Descripcion", "Recurso Tecnologico", false, false));
             return list;
         }
-
+        public static List<AsignaciónCientíficoDelCI> asignacionesCientificosDelCI() //devuelve una lista de asignaciciones de cientificos para el paso de los turnos
+        {
+            List<AsignaciónCientíficoDelCI> asignacion = new List<AsignaciónCientíficoDelCI>();
+            asignacion.Add(asigCienti);
+            return asignacion;
+        }
     }
 }

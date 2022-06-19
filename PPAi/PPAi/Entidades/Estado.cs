@@ -141,6 +141,8 @@ namespace PPAi.Entidades
             }
             return false;
         }
-        
+        public bool esAmbitoReserva() { return ambito == "Reserva"; }
+        public bool esPendienteConfirmacion() { return nombre == "Pendiente de confirmacion"; }
+        public bool esConfirmado() { return nombre == "Confirmado"; }
     }
 }

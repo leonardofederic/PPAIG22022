@@ -12,7 +12,7 @@ namespace PPAi.Entidades
         private DateTime fechaDesde;
         private DateTime fechaHasta;
         private PersonalCientífico pc;
-        private List<Turno> turno;
+        private List<Turno> turnos;
 
         public DateTime FechaDesde
         {
@@ -34,7 +34,7 @@ namespace PPAi.Entidades
 
         public List<Turno> Turno
         {
-            get => turno; set => turno = value;
+            get => turnos; set => turnos = value;
         }
 
         public AsignaciónCientíficoDelCI()
@@ -47,7 +47,7 @@ namespace PPAi.Entidades
             this.fechaDesde = fechaDesde;
             this.fechaHasta = fechaHasta;
             this.pc = pc;
-            this.turno = turnos;
+            this.turnos = turnos;
 
         }
 
@@ -62,9 +62,9 @@ namespace PPAi.Entidades
 
         public (string, string) mostrarDatosCientifico(Turno t)
         {
-            for (int i = 0; i < turno.Count; i++)
+            for (int i = 0; i < turnos.Count; i++)
             {
-                if (turno[i] == t)
+                if (turnos[i] == t)
                 {
                     string nom = this.pc.getNombre();
                     string mail = this.PC.getMail();
@@ -72,6 +72,21 @@ namespace PPAi.Entidades
                 }
             }
             return (null, null);
+        }
+        public bool esTuTurno(Turno turn)
+        {
+            // si la asignacionCientifico posee el turno enviado como parametro retorna true
+            bool respuesta = false;
+            foreach (Turno turno in turnos)
+            {
+                if (turno == turn) { respuesta = true; }
+            }
+            return respuesta;
+        }
+        public string mostrarDatosCientifico()
+        {
+            //retorna una lista con los datos minimos del personal cientifico asocioado a esta asignacionCientifico
+            return pc.mostrarDatos();
         }
     }
 }

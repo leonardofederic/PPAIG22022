@@ -14,6 +14,7 @@ namespace PPAi.Logica
     class GestorRegistrarIngrDeRTEnMantenimCorrectivo
     {
         private Ventana_Secuandario pantalla;
+        private Ventana_Turnos pantalla_turnos;
         private List<RecursoTecnológico> lisRT;
         private RecursoTecnológico rt;
         private Sesion sesion;
@@ -37,8 +38,7 @@ namespace PPAi.Logica
             this.pantalla = pantalla;
         }
 
-
-            //public static int obtenerUsuarioLogueado() { }
+        //public static int obtenerUsuarioLogueado() { }
         public void tomarRegIngreRTMantenimCorrect()
         {
             PersonalCientífico per1 = new PersonalCientífico();
@@ -66,12 +66,8 @@ namespace PPAi.Logica
 
         public void tomarFechaYHoraActualSistema()
         {
-            
             fechaActual = DateTime.Now;
-           
         }
-
-
         public List<RecursoTecnológico> buscarRTDisponible(AsignacionRepotTecRT ra)
         {
             lisRT = ra.obtenerRTDisponibles(ra);
@@ -82,8 +78,6 @@ namespace PPAi.Logica
 
             return lisRT;
         }
-
-
         public RecursoTecnológico tomarRTSelecionado(string numero)
         {
             for (int i = 0; lisRT.Count > i; i++)
@@ -100,17 +94,27 @@ namespace PPAi.Logica
         {
             this.fechaFinPrevistaSeleccionada = fechaFin;
         }
-
         public void tomarMotivoMantenimiento(string razon)
         {
             this.razonMantenimientoIngresado = razon;
-            paso();
+            buscarExistenciaTurno();
         }
-
-        public void paso()/// cambiar
+        public void buscarExistenciaTurno()/// cambiar
         {
+            List<List<string>> datos = null; //lista compuesta de mas listas que tienen [numero de reserva, nombre y apellido del cientifico, fecha y hora de la reserva]
+            Estado pendienteDeConfirmacion = null; // estado recuperado de la lista de estados
+            Estado confirmado = null; // estado recuperado de la lista de estados
             timeActual = fechaActual;
             listaTurnos = obtenerTurnosRTCancelables();
+
+            foreach (Estado estado in Datos.conocerEstados()) // obtenemos los 2 estados necesarios
+            {
+                if (estado.esAmbitoReserva())
+                {
+                    if (estado.esPendienteConfirmacion()) { pendienteDeConfirmacion = estado; }
+                    else if (estado.esConfirmado()) { confirmado = estado; }
+                }
+            }
 
             if (listaTurnos != null)
             {
@@ -118,21 +122,37 @@ namespace PPAi.Logica
             }
             else
             {
-                ///aca iria para buscar turnos vigentes  tiene cambiar 
+                datos = rtSelec.mostrarTurnoReservado(pendienteDeConfirmacion, confirmado, Datos.asignacionesCientificosDelCI()); // obtenemos los datos de los turnos
+                datos = ordenarPorCientifico(datos);
+
+                DataTable tabla = new DataTable();
+                tabla.Columns.Add("NroTurno");
+                tabla.Columns.Add("Cientifico");
+                tabla.Columns.Add("FechaHoraReserva");
+
+                foreach (List<string> lista in datos) // obtenemos los 2 estados necesarios
+                {
+                    DataRow fila = tabla.NewRow();
+                    fila["NroTurno"] = lista[0];
+                    fila["Cientifico"] = lista[1];
+                    fila["FechaHoraReserva"] = lista[2];
+
+                    tabla.Rows.Add(fila);
+                }
+                pantalla_turnos.mostrarDatosTurnoReservado(tabla);
             }
 
         }
-      
-
         public List<Turno> obtenerTurnosRTCancelables()
         {
             listaTurnos = this.rtSelec.obtenerTurnosCancelablesEnPeriodo(listaTurnos, fechaFinPrevistaSeleccionada.Day, fechaFinPrevistaSeleccionada.Month);
             return listaTurnos;// esto para cambiar 
         }
-        
-
-        
-
-
+        public static List<List<string>> ordenarPorCientifico(List<List<string>> datos)
+        { return datos; }
     } 
 }
+
+
+
+

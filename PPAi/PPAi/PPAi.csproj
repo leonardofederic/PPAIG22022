@@ -8,7 +8,7 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>PPAi</RootNamespace>
     <AssemblyName>PPAi</AssemblyName>
-    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
@@ -78,11 +78,11 @@
     <Compile Include="Formularios\Ventana_Secuandario.Designer.cs">
       <DependentUpon>Ventana_Secuandario.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\Form3.cs">
+    <Compile Include="Formularios\Ventana_Turnos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\Form3.Designer.cs">
-      <DependentUpon>Form3.cs</DependentUpon>
+    <Compile Include="Formularios\Ventana_Turnos.Designer.cs">
+      <DependentUpon>Ventana_Turnos.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularios\Form4.cs">
       <SubType>Form</SubType>
@@ -100,8 +100,8 @@
     <EmbeddedResource Include="Formularios\Ventana_Secuandario.resx">
       <DependentUpon>Ventana_Secuandario.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\Form3.resx">
-      <DependentUpon>Form3.cs</DependentUpon>
+    <EmbeddedResource Include="Formularios\Ventana_Turnos.resx">
+      <DependentUpon>Ventana_Turnos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Form4.resx">
       <DependentUpon>Form4.cs</DependentUpon>

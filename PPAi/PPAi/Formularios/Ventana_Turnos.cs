@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace PPAi.Formularios
 {
-    public partial class Form3 : Form
+    public partial class Ventana_Turnos : Form
     {
-        public Form3()
+        public Ventana_Turnos()
         {
             InitializeComponent();
         }

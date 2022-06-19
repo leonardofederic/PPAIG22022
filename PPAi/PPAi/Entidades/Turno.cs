@@ -16,6 +16,7 @@ namespace PPAi.Entidades
         private DateTime fechaHoraFin;
         private List<CambioEstadoTurno> cambioEstado;
         private AsignaciónCientíficoDelCI asignacion;
+        private Reserva reserva;
 
         private CambioEstadoTurno ultimo;
 
@@ -116,7 +117,7 @@ namespace PPAi.Entidades
         public void mostrarDatosTurno()
         {
             DateTime fechaHora = getFechaHora(this);
-            obtenerCientifico();
+            //obtenerCientifico();
             //return (fechaHora, nom, mail);
         }
 
@@ -125,17 +126,38 @@ namespace PPAi.Entidades
             return t.FechaHoraFin;
         }
 
-        public (string, string) obtenerCientifico()
+        /*public (string, string) obtenerCientifico()
         {
             asignacion = Datos.asigCienti;
             (string nom, string mail) = this.AsignacionCientifico.mostrarDatosCientifico(this);
             return (nom, mail);
-        }
+        }*/
 
         public void setFechaFin(DateTime time, Estado estado)
         {
             ultimo.FechaHoraHasta = time;
             this.CambioEstado.Add(new CambioEstadoTurno(time, null, estado));
+        }
+        public List<string> mostarReserva(Estado pendienteDeConfirmacion, Estado confirmado, List<AsignaciónCientíficoDelCI> asignacionesCientificos)
+        {
+            //si el estado de la reserva asociada al turno es confirmado o pendiente de confirmacion retorna los datos del turno y del personal cientifico
+            List<string> datos = null;
+            if (reserva.esConfirmado(confirmado) || reserva.esPendienteDeConfirmacion(pendienteDeConfirmacion))
+            {
+                datos.Add(id.ToString()); //numero de turno
+                datos.Add(reserva.mostrarReserva()); //fecha y hora reserva
+
+                //busca la asignacion que tenga asocioado este turno entre las asgnaciones que llegaron como parametro y agrega a la cadena los datos del personal cientifico
+                foreach (AsignaciónCientíficoDelCI asignacion in asignacionesCientificos)
+                {
+                    if (asignacion.esTuTurno(this))
+                    {
+                        datos.Add(asignacion.mostrarDatosCientifico()); //nombre y apellido cientifico
+                    }
+                }
+                return datos;
+            }
+            return datos;
         }
     }
 }
