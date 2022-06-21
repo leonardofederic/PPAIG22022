@@ -55,10 +55,10 @@ namespace PPAi.Entidades
             get => asignacion;
             set => asignacion = value;
         }
-
-        public Turno()
+        public Reserva Reserva
         {
-
+            get => reserva;
+            set => reserva = value;
         }
 
         public Turno(int id, DateTime fechaGeneracion, string diaSemana, DateTime fechaHoraInicio, DateTime fechaHoraFin, List<CambioEstadoTurno> cambioEstado)
@@ -68,8 +68,6 @@ namespace PPAi.Entidades
             this.fechaHoraInicio = fechaHoraInicio;
             this.fechaHoraFin = fechaHoraFin;
             this.cambioEstado = cambioEstado;
-
-
         }
 
         public bool esCancelableEnPeriodo(int dia, int mes)
@@ -138,26 +136,21 @@ namespace PPAi.Entidades
             ultimo.FechaHoraHasta = time;
             this.CambioEstado.Add(new CambioEstadoTurno(time, null, estado));
         }
-        public List<string> mostarReserva(Estado pendienteDeConfirmacion, Estado confirmado, List<AsignaciónCientíficoDelCI> asignacionesCientificos)
+        public Turno mostarReserva(Estado pendienteDeConfirmacion, Estado confirmado, DateTime fechaFinMantenimiento, List<AsignaciónCientíficoDelCI> asignacionesCientificos)
         {
-            //si el estado de la reserva asociada al turno es confirmado o pendiente de confirmacion retorna los datos del turno y del personal cientifico
-            List<string> datos = null;
-            if (reserva.esConfirmado(confirmado) || reserva.esPendienteDeConfirmacion(pendienteDeConfirmacion))
-            {
-                datos.Add(id.ToString()); //numero de turno
-                datos.Add(reserva.mostrarReserva()); //fecha y hora reserva
+            //si el estado de la reserva asociada al turno es confirmado o pendiente de confirmacion se retorna a si mismo
 
-                //busca la asignacion que tenga asocioado este turno entre las asgnaciones que llegaron como parametro y agrega a la cadena los datos del personal cientifico
-                foreach (AsignaciónCientíficoDelCI asignacion in asignacionesCientificos)
+            if (reserva != null)
+            {
+                if (reserva.esConfirmado(confirmado) || reserva.esPendienteDeConfirmacion(pendienteDeConfirmacion))
                 {
-                    if (asignacion.esTuTurno(this))
+                    if (reserva.mostrarReserva(fechaFinMantenimiento))
                     {
-                        datos.Add(asignacion.mostrarDatosCientifico()); //nombre y apellido cientifico
+                        return this;
                     }
-                }
-                return datos;
             }
-            return datos;
+        }
+            return null;
         }
     }
 }

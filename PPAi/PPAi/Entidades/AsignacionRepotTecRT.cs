@@ -70,11 +70,11 @@ namespace PPAi.Entidades
             {
                 if (rt[i] != null)
                 {
-                    (int num, string tipo, string marca, string modelo) = rt[i].mostrarDatosRT(rt[i]);
-                    datos.Add(num.ToString());
-                    datos.Add(tipo);
-                    datos.Add(marca);
-                    datos.Add(modelo);
+                    //(int num, string tipo, string marca, string modelo) = rt[i].mostrarDatosRT(rt[i]);
+                    //datos.Add(num.ToString());
+                    //datos.Add(tipo);
+                    //datos.Add(marca);
+                    //datos.Add(modelo);
                 }
             }
             return rt;

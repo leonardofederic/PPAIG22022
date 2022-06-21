@@ -9,6 +9,9 @@ namespace PPAi.AccesoDatos
 {
     public class Datos
     {
+        private static Estado confirmado = new Estado(7, "Confirmado", "Descripcion", "Reserva", false, false);
+        private static Estado pendienteDeConfirmacion = new Estado(7, "Pendiente de confirmacion", "Descripcion", "Reserva", false, false);
+
         public static readonly DateTime date1 = new DateTime(2022, 06, 10, 08, 30, 01);
         public static readonly DateTime date2 = new DateTime(2022, 06, 01, 09, 15, 45);
         public static readonly DateTime date3 = new DateTime(2022, 06, 20, 11, 20, 15);
@@ -28,7 +31,7 @@ namespace PPAi.AccesoDatos
         public static readonly Usuario usuario2 = new Usuario("admin", "1234", false);
 
         public static readonly CentroDeInvestigacion ci = new CentroDeInvestigacion("Centro 1", agregarRT(), agregarAsignacion());
-
+        public static readonly RecursoTecnológico RTseleccionadoPrueba = new RecursoTecnológico(5, date1, "imagen", 10, 20, 5, agregarTurnos(), new TipoRecursoTecnológico(2, "Osciloscopio", "Tipo2"), new Modelo(2, "Ya-xun"), agregarCamEstado());
         public static List<AsignacionRepotTecRT> crearAsignaciones()
         {
             List<AsignacionRepotTecRT> asigna = new List<AsignacionRepotTecRT>();
@@ -52,14 +55,29 @@ namespace PPAi.AccesoDatos
             return list;
         }
 
+
+        
         private static List<Turno> agregarTurnos()
         {
             List<Turno> turnos = new List<Turno>();
+    
+            Turno turno1 = new Turno(1, date1, "Lunes", date2, date4, agregarCambioEstado());
+            Turno turno2 = new Turno(2, date1, "Martes", date2, date3, agregarCambioEstado());
+            Turno turno3 = new Turno(3, date1, "Miercoles", date2, date4, agregarCambioEstado());
+            Turno turno4 = new Turno(4, date1, "Viernes", date2, date3, agregarCambioEstado());
+            turno1.AsignacionCientifico = asigCienti;
+            turno2.AsignacionCientifico = asigCienti;
+            turno3.AsignacionCientifico = asigCienti;
+            turno4.AsignacionCientifico = asigCienti;
+            turno1.Reserva = new Reserva(confirmado, date2, date3);
+            turno2.Reserva = new Reserva(pendienteDeConfirmacion, date1, date3);
+            turno3.Reserva = new Reserva(confirmado, date2, date4);
+            turno4.Reserva = new Reserva(pendienteDeConfirmacion, date3, date4);
 
-            turnos.Add(new Turno(1, date1, "Lunes", date2, date4, agregarCambioEstado()));
-            turnos.Add(new Turno(2, date1, "Martes", date2, date3, agregarCambioEstado()));
-            turnos.Add(new Turno(3, date1, "Miercoles", date2, date4, agregarCambioEstado()));
-            turnos.Add(new Turno(4, date1, "Viernes", date2, date3, agregarCambioEstado()));
+            turnos.Add(turno1);
+            turnos.Add(turno2);
+            turnos.Add(turno3);
+            turnos.Add(turno4);
             return turnos;
         }
 
@@ -107,7 +125,7 @@ namespace PPAi.AccesoDatos
             list.Add(asigCienti);
             return list;
         }
-
+        
         public static List<Estado> conocerEstados()
         {
             List<Estado> list = new List<Estado>();
@@ -118,6 +136,9 @@ namespace PPAi.AccesoDatos
             list.Add(new Estado(5, "CanceladoMantenimientoCorrectivo", "Descripcion", "Turno", false, false));
             list.Add(new Estado(6, "Mantenimiento Correctivo", "Descripcion", "Recurso Tecnologico", false, false));
             list.Add(new Estado(7, "Preventivo", "Descripcion", "Recurso Tecnologico", false, false));
+            list.Add(pendienteDeConfirmacion);
+            list.Add(confirmado);
+
             return list;
         }
         public static List<AsignaciónCientíficoDelCI> asignacionesCientificosDelCI() //devuelve una lista de asignaciciones de cientificos para el paso de los turnos

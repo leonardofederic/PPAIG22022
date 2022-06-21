@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using PPAi.Entidades;
 
 namespace PPAi.Formularios
 {
@@ -16,9 +17,50 @@ namespace PPAi.Formularios
         {
             InitializeComponent();
         }
-        public void mostrarDatosTurnoReservado(DataTable datos) //llega una lista con listas compuestas de [numero de reserva, nombre y apellido del cientifico, fecha y hora de la reserva] todos son strings
+        public void mostrarDatosTurnoReservado(List<Turno> turnos) //llega una lista con los turnos que seran cancelados
         {
-            grid_Turno.DataSource = datos;
+            DataRow row;
+            DataColumn column;
+            try
+            {
+                grillaTurnos.DataSource = turnos;
+                DataTable tablaRecursos = new DataTable();
+
+                column = new DataColumn();
+                column.ColumnName = "Inicio";
+                tablaRecursos.Columns.Add(column);
+
+                column = new DataColumn();
+                column.ColumnName = "Fin";
+                tablaRecursos.Columns.Add(column);
+
+                column = new DataColumn();
+                column.ColumnName = "Cientifico";
+                tablaRecursos.Columns.Add(column);
+
+                column = new DataColumn();
+                column.ColumnName = "Mail";
+                tablaRecursos.Columns.Add(column);
+
+                foreach (Turno t in turnos)
+                {
+                    row = tablaRecursos.NewRow();
+                    row["Inicio"] = t.Reserva.FechaInicio;
+                    row["Fin"] = t.Reserva.FechaFin;
+                    row["Cientifico"] = t.AsignacionCientifico.PC.Nombre.ToString();
+                    row["Mail"] = t.AsignacionCientifico.PC.CorreoInstitu.ToString();
+                    tablaRecursos.Rows.Add(row);
+                }
+
+                grillaTurnos.DataSource = tablaRecursos;
+                grillaTurnos.Sort(grillaTurnos.Columns["Cientifico"], ListSortDirection.Ascending);
+
+                this.Show();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("No hay listado de recursos tecnologicos");
+            }
         }
     }
 }

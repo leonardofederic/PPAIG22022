@@ -14,7 +14,7 @@ namespace PPAi.Logica
     class GestorRegistrarIngrDeRTEnMantenimCorrectivo
     {
         private Ventana_Secuandario pantalla;
-        private Ventana_Turnos pantalla_turnos;
+        private Ventana_Turnos pantalla_turnos = new Ventana_Turnos();
         private List<RecursoTecnológico> lisRT;
         private RecursoTecnológico rt;
         private Sesion sesion;
@@ -22,20 +22,20 @@ namespace PPAi.Logica
         private List<AsignacionRepotTecRT> asigResTecRT;
         private AsignacionRepotTecRT ra;
         private PersonalCientífico pc;
-        private RecursoTecnológico rtSelec;
-        private DateTime fechaFinPrevistaSeleccionada;
+        private RecursoTecnológico rtSelec = Datos.RTseleccionadoPrueba;
+        private DateTime fechaFinPrevistaSeleccionada = new DateTime(2022, 06, 11, 15, 32, 20);
         private DateTime timeActual;
         private string razonMantenimientoIngresado;
-        private List<Turno> listaTurnos;
+        private List<Turno> listaTurnos; //resultado del metodo buscarExistenciaTurno
         private Estado esConfMCorr;
         private Estado esEnMCorr;
         private Estado disponible;
         private DateTime fechaActual;
 
 
-        public GestorRegistrarIngrDeRTEnMantenimCorrectivo(Ventana_Secuandario pantalla)
+        public GestorRegistrarIngrDeRTEnMantenimCorrectivo()//Ventana_Secuandario pantalla)
         {
-            this.pantalla = pantalla;
+            //this.pantalla = pantalla;
         }
 
         //public static int obtenerUsuarioLogueado() { }
@@ -99,13 +99,11 @@ namespace PPAi.Logica
             this.razonMantenimientoIngresado = razon;
             buscarExistenciaTurno();
         }
-        public void buscarExistenciaTurno()/// cambiar
+        public void buscarExistenciaTurno()
         {
-            List<List<string>> datos = null; //lista compuesta de mas listas que tienen [numero de reserva, nombre y apellido del cientifico, fecha y hora de la reserva]
             Estado pendienteDeConfirmacion = null; // estado recuperado de la lista de estados
             Estado confirmado = null; // estado recuperado de la lista de estados
             timeActual = fechaActual;
-            listaTurnos = obtenerTurnosRTCancelables();
 
             foreach (Estado estado in Datos.conocerEstados()) // obtenemos los 2 estados necesarios
             {
@@ -115,41 +113,12 @@ namespace PPAi.Logica
                     else if (estado.esConfirmado()) { confirmado = estado; }
                 }
             }
-
-            if (listaTurnos != null)
-            {
-                pantalla.avisoNoturnos();
-            }
-            else
-            {
-                datos = rtSelec.mostrarTurnoReservado(pendienteDeConfirmacion, confirmado, Datos.asignacionesCientificosDelCI()); // obtenemos los datos de los turnos
-                datos = ordenarPorCientifico(datos);
-
-                DataTable tabla = new DataTable();
-                tabla.Columns.Add("NroTurno");
-                tabla.Columns.Add("Cientifico");
-                tabla.Columns.Add("FechaHoraReserva");
-
-                foreach (List<string> lista in datos) // obtenemos los 2 estados necesarios
-                {
-                    DataRow fila = tabla.NewRow();
-                    fila["NroTurno"] = lista[0];
-                    fila["Cientifico"] = lista[1];
-                    fila["FechaHoraReserva"] = lista[2];
-
-                    tabla.Rows.Add(fila);
-                }
-                pantalla_turnos.mostrarDatosTurnoReservado(tabla);
-            }
-
+            listaTurnos = rtSelec.mostrarTurnoReservado(pendienteDeConfirmacion, confirmado, fechaFinPrevistaSeleccionada, Datos.asignacionesCientificosDelCI()); // obtenemos los datos de los turnos
+            ordenarPorCientifico(listaTurnos);
+            pantalla_turnos.mostrarDatosTurnoReservado(listaTurnos);
         }
-        public List<Turno> obtenerTurnosRTCancelables()
-        {
-            listaTurnos = this.rtSelec.obtenerTurnosCancelablesEnPeriodo(listaTurnos, fechaFinPrevistaSeleccionada.Day, fechaFinPrevistaSeleccionada.Month);
-            return listaTurnos;// esto para cambiar 
-        }
-        public static List<List<string>> ordenarPorCientifico(List<List<string>> datos)
-        { return datos; }
+        public static List<Turno> ordenarPorCientifico(List<Turno> turnos)
+        { return turnos; }
     } 
 }
 

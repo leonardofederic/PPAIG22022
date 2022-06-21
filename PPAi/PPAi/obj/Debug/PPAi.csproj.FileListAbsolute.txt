@@ -51,3 +51,16 @@ E:\Proyectos\PPAI_DSI\PPAIG22022\PPAi\PPAi\obj\Debug\PPAi.csproj.CoreCompileInpu
 E:\Proyectos\PPAI_DSI\PPAIG22022\PPAi\PPAi\obj\Debug\PPAi.exe
 E:\Proyectos\PPAI_DSI\PPAIG22022\PPAi\PPAi\obj\Debug\PPAi.pdb
 E:\Proyectos\PPAI_DSI\PPAIG22022\PPAi\PPAi\obj\Debug\PPAi.Formularios.Ventana_Turnos.resources
+E:\Proyectos\PPAIG22022\PPAi\PPAi\bin\Debug\PPAi.exe.config
+E:\Proyectos\PPAIG22022\PPAi\PPAi\bin\Debug\PPAi.exe
+E:\Proyectos\PPAIG22022\PPAi\PPAi\bin\Debug\PPAi.pdb
+E:\Proyectos\PPAIG22022\PPAi\PPAi\obj\Debug\PPAi.csproj.AssemblyReference.cache
+E:\Proyectos\PPAIG22022\PPAi\PPAi\obj\Debug\PPAi.Ventana_Pricipal.resources
+E:\Proyectos\PPAIG22022\PPAi\PPAi\obj\Debug\PPAi.Formularios.Ventana_Secuandario.resources
+E:\Proyectos\PPAIG22022\PPAi\PPAi\obj\Debug\PPAi.Formularios.Ventana_Turnos.resources
+E:\Proyectos\PPAIG22022\PPAi\PPAi\obj\Debug\PPAi.Formularios.Form4.resources
+E:\Proyectos\PPAIG22022\PPAi\PPAi\obj\Debug\PPAi.Properties.Resources.resources
+E:\Proyectos\PPAIG22022\PPAi\PPAi\obj\Debug\PPAi.csproj.GenerateResource.cache
+E:\Proyectos\PPAIG22022\PPAi\PPAi\obj\Debug\PPAi.csproj.CoreCompileInputs.cache
+E:\Proyectos\PPAIG22022\PPAi\PPAi\obj\Debug\PPAi.exe
+E:\Proyectos\PPAIG22022\PPAi\PPAi\obj\Debug\PPAi.pdb

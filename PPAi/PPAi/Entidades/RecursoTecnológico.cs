@@ -114,14 +114,14 @@ namespace PPAi.Entidades
             return false;
         }
 
-        public (int, string, string, string) mostrarDatosRT(RecursoTecnológico rt)
+        /*public (int, string, string, string) mostrarDatosRT(RecursoTecnológico rt)
         {
             int num = getNumero(rt);
             string tipo = rt.TipoRecurso.getNombre().Nombre;
             (string marca, string modelo) = rt.Modelo.mostrarMarcaYModelo();
 
             return (num, tipo, marca, modelo);
-        }
+        }*/
 
         public int getNumero(RecursoTecnológico rt)
         {
@@ -184,15 +184,18 @@ namespace PPAi.Entidades
                 turno.setFechaFin(time, estadoRT);
             }
         }
-        public List<List<string>> mostrarTurnoReservado(Estado pendienteDeConfirmacion, Estado confirmado, List<AsignaciónCientíficoDelCI> asignacionesCientificos)
+        public List<Turno> mostrarTurnoReservado(Estado pendienteDeConfirmacion, Estado confirmado, DateTime fechaFinMantenimiento, List<AsignaciónCientíficoDelCI> asignacionesCientificos)
         {
-            List<List<string>> datos = null;
+            List<Turno> turnosReservados = new List<Turno>();
             foreach (Turno turn in this.turno)
             {
-                List<string> recibido = turn.mostarReserva(pendienteDeConfirmacion, confirmado, asignacionesCientificos);
-                if (recibido != null) { datos.Add(recibido); }
+                Turno turnoSeleccionado = turn.mostarReserva(pendienteDeConfirmacion, confirmado, fechaFinMantenimiento, asignacionesCientificos);
+                if(turnoSeleccionado != null)
+                {
+                    turnosReservados.Add(turnoSeleccionado);
+                }
             }
-            return datos;
+            return turnosReservados;
         }
     }
 }

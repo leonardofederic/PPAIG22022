@@ -60,7 +60,7 @@ namespace PPAi.Entidades
             return false;
         }
 
-        public (string, string) mostrarDatosCientifico(Turno t)
+        /*public (string, string) mostrarDatosCientifico(Turno t)
         {
             for (int i = 0; i < turnos.Count; i++)
             {
@@ -72,14 +72,14 @@ namespace PPAi.Entidades
                 }
             }
             return (null, null);
-        }
+        }*/
         public bool esTuTurno(Turno turn)
         {
             // si la asignacionCientifico posee el turno enviado como parametro retorna true
             bool respuesta = false;
             foreach (Turno turno in turnos)
             {
-                if (turno == turn) { respuesta = true; }
+                if (turno.Id == turn.Id) { respuesta = true; }
             }
             return respuesta;
         }

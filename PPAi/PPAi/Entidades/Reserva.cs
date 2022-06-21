@@ -9,45 +9,47 @@ namespace PPAi.Entidades
 {
     public class Reserva
     {
-        public Reserva()
+        public Reserva(Estado estado, DateTime fechaInicio, DateTime fechaFin)
         {
+            Estado = estado;
+            FechaInicio = fechaInicio;  
+            FechaFin = fechaFin; 
+        }
+        //private int _idReserva;
+        private Estado estado;
+        private DateTime fechaInicio;
+        private DateTime fechaFin;
 
-        }
-        private int _idReserva;
-        private Estado _estado;
-        private string _fechaInicio;
-        private string _fechaFin;
-
-        public int idReserva
+        //public int idReserva
+        //{
+        //    get => _idReserva;
+        //    set => _idReserva = value;
+        //}
+        public Estado Estado
         {
-            get => _idReserva;
-            set => _idReserva = value;
+            get => estado;
+            set => estado = value;
         }
-        public Estado estado
+        public DateTime FechaInicio
         {
-            get => _estado;
-            set => _estado = value;
+            get => fechaInicio;
+            set => fechaInicio = value;
         }
-        public string fechaInicio
+        public DateTime FechaFin
         {
-            get => _fechaInicio;
-            set => _fechaInicio = value;
-        }
-        public string fechaFin
-        {
-            get => _fechaFin;
-            set => _fechaFin = value;
+            get => fechaFin;
+            set => fechaFin = value;
         }
         
         public bool esConfirmado(Estado confirmado) { return estado == confirmado; }
         public bool esPendienteDeConfirmacion(Estado pendienteDeConfirmacion) { return estado == pendienteDeConfirmacion; }
-        public string mostrarReserva() //devuleve la fecha y hora de inicio
+        public bool mostrarReserva(DateTime fechaFinMantenimiento)
         {
-            /*List<string> datos = new List<string>();
-            datos.Add(fechaInicio);
-            datos.Add(fechaFin);*/
-
-            return fechaInicio;
+            if( this.FechaInicio <= fechaFinMantenimiento)
+            {
+                return true;
+            }
+            return false;
         }
     }
 }

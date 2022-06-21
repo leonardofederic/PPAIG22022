@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using PPAi.Formularios;
+using PPAi.Logica;
 
 namespace PPAi
 {
@@ -20,9 +21,13 @@ namespace PPAi
 
         private void Btn_Principal_Click(object sender, EventArgs e)
         {
-            Ventana_Secuandario ventana = new Ventana_Secuandario();
-            ventana.Show();
+            //Ventana_Secuandario ventana = new Ventana_Secuandario();
+            //ventana.Show();
+            //this.Hide();
+            GestorRegistrarIngrDeRTEnMantenimCorrectivo gestor = new GestorRegistrarIngrDeRTEnMantenimCorrectivo();
+            gestor.buscarExistenciaTurno();
             this.Hide();
+
         }
     }
 }

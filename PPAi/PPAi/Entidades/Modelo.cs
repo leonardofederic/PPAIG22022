@@ -41,7 +41,7 @@ namespace PPAi.Entidades
             this.nombre = nombre;
         }
 
-        public (string, string) mostrarMarcaYModelo()
+        /*public (string, string) mostrarMarcaYModelo()
         {
             Marca marca = Datos.marca1;
             for (int i = 0; i < marca.Modelos.Count; i++)
@@ -56,7 +56,7 @@ namespace PPAi.Entidades
             }
             return (null, null);
 
-        }
+        }*/
 
 
 

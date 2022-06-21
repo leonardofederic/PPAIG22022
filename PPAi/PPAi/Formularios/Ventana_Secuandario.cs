@@ -33,7 +33,7 @@ namespace PPAi.Formularios
 
         private void Form2_Load(object sender, EventArgs e)
         {
-            gestor = new GestorRegistrarIngrDeRTEnMantenimCorrectivo(this);
+            gestor = new GestorRegistrarIngrDeRTEnMantenimCorrectivo();//this);
             gestor.tomarRegIngreRTMantenimCorrect();
         }
         public void CargarGrilla(List<RecursoTecnológico> rts)
@@ -96,6 +96,7 @@ namespace PPAi.Formularios
                 gestor.tomarFechaPrevistaDatosMant(fechaFin);
                 gestor.tomarMotivoMantenimiento(motivoMantenimiento);
 
+
             }
 
             /// solo para ver lo que arroja
@@ -105,7 +106,6 @@ namespace PPAi.Formularios
 
             MessageBox.Show(recursoSelec.ToString() + " " + fecha.Date.ToString("dd/MM/yyyy") + " " + motivo.ToString());
         }
-
         private void Btn_Cancelar_Click(object sender, EventArgs e)
         {
             DialogResult opc;
